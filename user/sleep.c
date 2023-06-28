@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
     int time = atoi(argv[1]);
-    printf("(nothing happen for a little while)\n");
+    fprintf(1, "(nothing happen for a little while)\n");
     sleep(time);
     exit(0);
 }
