@@ -1,0 +1,19 @@
+# ninja log v5
+20	68	1687947164823940283	CMakeFiles/Kernel.dir/user/init.c.o	b6dd15218c4ca5aa
+87	259	1687947165019941875	CMakeFiles/Kernel.dir/user/sh.c.o	d02e3b40f6b0022b
+17	148	1687947164903940932	CMakeFiles/Kernel.dir/user/grind.c.o	e15ffcd75e9ce4d3
+48	232	1687947164991941649	CMakeFiles/Kernel.dir/user/ls.c.o	4bf50e8303289aee
+27	58	1687947164815940217	CMakeFiles/Kernel.dir/user/kill.c.o	c190033b8c8525e2
+1	143	1687947164903940932	CMakeFiles/Kernel.dir/user/echo.c.o	55eafae3cfb2cc5
+148	245	1687947165003941746	CMakeFiles/Kernel.dir/user/umalloc.c.o	d0533dde62dde458
+83	110	1687947164867940640	CMakeFiles/Kernel.dir/user/rm.c.o	2738bf9557bab457
+58	87	1687947164843940445	CMakeFiles/Kernel.dir/user/mkdir.c.o	b849a70bf8113250
+1	150	1687947164907940966	CMakeFiles/Kernel.dir/user/forktest.c.o	a2d44b3eda62168
+150	203	1687947164963941420	CMakeFiles/Kernel.dir/user/wc.c.o	d7e08fe98c921385
+30	83	1687947164843940445	CMakeFiles/Kernel.dir/user/ln.c.o	3750a736a28fc392
+151	194	1687947164947941290	CMakeFiles/Kernel.dir/user/zombie.c.o	9064486161fc82b4
+9	151	1687947164907940966	CMakeFiles/Kernel.dir/user/grep.c.o	6988cbb2665a1f8f
+110	149	1687947164903940932	CMakeFiles/Kernel.dir/user/stressfs.c.o	5a1686ce8c385d16
+68	274	1687947165031941973	CMakeFiles/Kernel.dir/user/printf.c.o	8d4bb47073d3ab9c
+143	227	1687947164987941615	CMakeFiles/Kernel.dir/user/ulib.c.o	224f371109b5c335
+1	48	1687947164803940120	CMakeFiles/Kernel.dir/user/cat.c.o	a6d7ec8bc488e05c
