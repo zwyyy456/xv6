@@ -23,13 +23,6 @@ submissions/
 ph
 barrier
 
-<<<<<<< HEAD
 .cache/
 build/
 __pycache__/
-=======
-## build product
-.cache/
-__pycache__/
-build/
->>>>>>> main
