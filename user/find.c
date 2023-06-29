@@ -15,65 +15,60 @@ char *fmtname(char *path) { // path 可能是绝对路径
     // Return blank-padded name.
     if (strlen(p) >= DIRSIZ)
         return p;
-    memmove(buf, p, strlen(p));                       // memmove(dst, src, len);
-    memset(buf + strlen(p), ' ', DIRSIZ - strlen(p)); // 后面全部置为空
+    memmove(buf, p, strlen(p));                     // memmove(dst, src, len);
+    memset(buf + strlen(p), 0, DIRSIZ - strlen(p)); // 后面全部置为空
     return buf;
 }
 
-void ls(char *path) {
+void find(char *path, char *name) {
     char buf[512], *p;
     int fd;
+    struct stat st; // 文件状态
     struct dirent de;
-    struct stat st;
-
     if ((fd = open(path, 0)) < 0) {
-        fprintf(2, "ls: cannot open %s\n", path);
-        return;
+        fprintf(2, "find: cannot open %s\n", path);
+        exit(1);
     }
-
     if (fstat(fd, &st) < 0) {
-        fprintf(2, "ls: cannot stat %s\n", path);
-        close(fd);
-        return;
+        fprintf(2, "find: cannot stat %s\n", path);
+        exit(1);
     }
-
     switch (st.type) {
     case T_FILE:
-        printf("%s %d %d %l\n", fmtname(path), st.type, st.ino, st.size);
+        if (strcmp(name, fmtname(path)) == 0) {
+            printf("%s\n", path);
+        }
         break;
-
     case T_DIR:
-        if (strlen(path) + 1 + DIRSIZ + 1 > sizeof buf) {
-            printf("ls: path too long\n");
+        if (strlen(path) + 1 + DIRSIZ + 1 > sizeof(buf)) {
+            printf("find: path too long\n");
             break;
         }
         strcpy(buf, path);
         p = buf + strlen(buf);
         *p++ = '/'; // 让路径以 '/' 结尾
         while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-            if (de.inum == 0)
+            if (de.inum == 0 || de.inum == 1 || strcmp(de.name, ".") == 0 || strcmp(de.name, "..") == 0) {
                 continue;
+            }
             memmove(p, de.name, DIRSIZ);
             p[DIRSIZ] = 0;
             if (stat(buf, &st) < 0) {
-                printf("ls: cannot stat %s\n", buf);
+                printf("find: cannot stat %s\n", buf);
                 continue;
             }
-            printf("%s %d %d %d\n", fmtname(buf), st.type, st.ino, st.size);
+            find(buf, name);
         }
         break;
     }
     close(fd);
 }
-
 int main(int argc, char *argv[]) {
-    int i;
-
-    if (argc < 2) {
-        ls(".");
-        exit(0);
+    if (argc != 3) {
+        fprintf(2, "syntax should be like : find <path> <filename>");
     }
-    for (i = 1; i < argc; i++)
-        ls(argv[i]);
+    char *path = argv[1]; // 要搜索的路径
+    char *name = argv[2]; // 要查找的名字
+    find(path, name);
     exit(0);
 }
