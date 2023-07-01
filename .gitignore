@@ -22,3 +22,8 @@ xv6.out*
 submissions/
 ph
 barrier
+
+# 
+.cache/
+build/
+__pycache__/
