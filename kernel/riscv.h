@@ -368,6 +368,7 @@ sfence_vma() {
 #define PXMASK 0x1FF // 9 bits
 #define PXSHIFT(level) (PGSHIFT + (9 * (level)))
 #define PX(level, va) ((((uint64)(va)) >> PXSHIFT(level)) & PXMASK)
+#define PTE_A(pte) (((uint64)pte >> 6) & 1)
 
 // one beyond the highest possible virtual address.
 // MAXVA is actually one bit less than the max allowed by

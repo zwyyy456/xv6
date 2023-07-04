@@ -48,15 +48,23 @@ void pgaccess_test() {
     printf("pgaccess_test starting\n");
     testname = "pgaccess_test";
     buf = malloc(32 * PGSIZE);
+    printf("debug: buf addr: %p\n", buf);
     if (pgaccess(buf, 32, &abits) < 0)
         err("pgaccess failed");
     buf[PGSIZE * 1] += 1;
     buf[PGSIZE * 2] += 1;
-    buf[PGSIZE * 30] += 1;
+    buf[PGSIZE * 30] += 1; // 说明这三个 page 被访问了
     if (pgaccess(buf, 32, &abits) < 0)
         err("pgaccess failed");
-    if (abits != ((1 << 1) | (1 << 2) | (1 << 30)))
+    if (abits != ((1 << 1) | (1 << 2) | (1 << 30))) {
+        printf("target: %d\n", (1 << 1) | (1 << 2) | (1 << 30));
+        printf("abits: %d\n");
         err("incorrect access bits set");
+    }
     free(buf);
     printf("pgaccess_test: OK\n");
 }
+/*
+100001111111011001010011011111
+1000000
+*/
