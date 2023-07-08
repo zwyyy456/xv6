@@ -75,7 +75,7 @@ int sys_pgaccess(void) {
     // lab pgtbl: your code here.
     // since abits is uint, 32 bits, so we can check 32 pages once
     uint64 va; // va 就是一个地址
-    uint64 mask_addr;
+    uint64 mask_addr = 0;
     uint32 mask = 0;
     int n;
     struct proc *p = myproc();
@@ -92,25 +92,25 @@ int sys_pgaccess(void) {
         return -1;
     }
     // 清除访问 buf 时造成的 pte accessed bit 被设置
-    pte_t *p_clear_buf = walk(pt, va, 0);
-    *p_clear_buf = *p_clear_buf & (0xffffffffffffffff ^ (1 << kAccessBit));
+    // pte_t *p_clear_buf = walk(pt, va, 0);
+    // *p_clear_buf = *p_clear_buf & (0xffffffffffffffff ^ (1 << kAccessBit));
     if (argaddr(2, &mask_addr) < 0) {
         return -1;
     }
 
     // walk 返回的是最后一级页表的的对应的 pte 的地址，该 pte 中就存放着真正的物理地址
-    pte_t *ppte = 0;
+    pte_t *ppte = walk(pt, va, 0); // ppte 是指向真的 pte 的地址
     for (int i = 0; i < n; ++i) {
-        ppte = walk(pt, va + i * PGSIZE, 0); // ppte 是指向真的 pte 的地址
-        uint32 valid = PTE_A(*ppte);
+        uint32 valid = PTE_A(ppte[i]);
         mask = mask | (valid << i);
-        printf("va: %p, n: %d, mask: %p, pte %p\n", va + i * PGSIZE, n, mask, *ppte);
+        // printf("va: %p, n: %d, mask: %p, pte %p\n", va + i * PGSIZE, n, mask, ppte[i]);
         // *ppte = *ppte & (0xffffffffffffffff ^ (!(valid << kAccessBit)));
+        ppte[i] = ppte[i] ^ (valid << kAccessBit);
     }
 
     // *(uint64 *)ppte = (*ppte & (kAll1 & (valid << kAccessBit))); // 清除  bit
     copyout(pt, mask_addr, (char *)(&mask), 4);
-    printf("after set: va: %p, n: %d, mask: %p, pte %p\n", va, n, mask, *ppte);
+    // printf("after set: va: %p, n: %d, mask: %p, pte %p\n", va, n, mask, *ppte);
     return 0;
 }
 #endif
