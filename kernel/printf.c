@@ -126,28 +126,30 @@ void printfinit(void) {
     pr.locking = 1;
 }
 
-// void backtrace(void) {
-//     uint64 fp = r_fp();
-//     printf("backtrace\n");
-//     struct proc *p = myproc();
-//     while (PGROUNDUP(fp) == p->kstack + PGSIZE) {
-//         uint64 ra = *(uint64 *)(fp - 8);
-//         printf("%p\n", ra);
-//         fp = *(uint64 *)(fp - 16);
-//     }
-// }
-
 void backtrace(void) {
-    struct proc *p = myproc();
-    printf("backtrace:\n");
     uint64 fp = r_fp();
-    while (1) {
-        fp = fp - 16; //入栈的上一级frame pointer
-        uint64 ret = *((uint64 *)(fp + 8));
-        fp = *((uint64 *)fp); //访问这个地址
-        if (PGROUNDUP(fp) != p->kstack + PGSIZE) {
-            break;
-        }
-        printf("%p\n", ret); //打印一下返回的PC值
+    printf("backtrace\n");
+    uint64 upb = PGROUNDUP(fp);
+    uint64 db = PGROUNDDOWN(fp);
+    // struct proc *p = myproc();
+    while (fp < upb && fp > db) {
+        uint64 ra = *(uint64 *)(fp - 8);
+        printf("%p\n", ra);
+        fp = *(uint64 *)(fp - 16);
     }
 }
+
+// void backtrace(void) {
+//     struct proc *p = myproc();
+//     printf("backtrace:\n");
+//     uint64 fp = r_fp();
+//     while (1) {
+//         fp = fp - 16; //入栈的上一级frame pointer
+//         uint64 ret = *((uint64 *)(fp + 8));
+//         fp = *((uint64 *)fp); //访问这个地址
+//         if (PGROUNDUP(fp) != p->kstack + PGSIZE) {
+//             break;
+//         }
+//         printf("%p\n", ret); //打印一下返回的PC值
+//     }
+// }
