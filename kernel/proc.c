@@ -113,7 +113,7 @@ found:
     p->state = USED;
     p->tick_num = 0;
     p->interval = 0;
-    p->handler = 0xffffffffffffffff;
+    p->handler = 0;
     p->flag = 0;
 
     // Allocate a trapframe page.
@@ -158,6 +158,7 @@ freeproc(struct proc *p) {
         kfree((void *)p->save_reg);
     }
     p->trapframe = 0;
+    p->save_reg = 0;
     if (p->pagetable)
         proc_freepagetable(p->pagetable, p->sz);
     p->pagetable = 0;
@@ -169,7 +170,7 @@ freeproc(struct proc *p) {
     p->killed = 0;
     p->xstate = 0;
     p->state = UNUSED;
-    p->handler = 0xffffffffffffffff;
+    p->handler = 0;
     p->interval = 0;
     p->tick_num = 0;
     p->flag = 0;

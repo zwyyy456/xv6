@@ -126,14 +126,28 @@ void printfinit(void) {
     pr.locking = 1;
 }
 
+// void backtrace(void) {
+//     uint64 fp = r_fp();
+//     printf("backtrace\n");
+//     struct proc *p = myproc();
+//     while (PGROUNDUP(fp) == p->kstack + PGSIZE) {
+//         uint64 ra = *(uint64 *)(fp - 8);
+//         printf("%p\n", ra);
+//         fp = *(uint64 *)(fp - 16);
+//     }
+// }
+
 void backtrace(void) {
+    struct proc *p = myproc();
+    printf("backtrace:\n");
     uint64 fp = r_fp();
-    printf("backtrace\n");
-    uint64 btm_s0 = PGROUNDDOWN(fp);
-    uint64 top_s0 = PGROUNDUP(fp);
-    while (fp < top_s0 && fp > btm_s0) {
-        uint64 ra = fp - 8;
-        printf("%p\n", ra);
-        fp = *(uint64 *)(fp - 16);
+    while (1) {
+        fp = fp - 16; //入栈的上一级frame pointer
+        uint64 ret = *((uint64 *)(fp + 8));
+        fp = *((uint64 *)fp); //访问这个地址
+        if (PGROUNDUP(fp) != p->kstack + PGSIZE) {
+            break;
+        }
+        printf("%p\n", ret); //打印一下返回的PC值
     }
 }
