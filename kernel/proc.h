@@ -113,4 +113,8 @@ struct proc {
     int interval;                // store interval for sigalarm
     int tick_num;
     uint64 handler; // store the addr of handler for sigalarm
+    uint64 pc;
+
+    struct trapframe *save_reg;
+    int flag;
 };

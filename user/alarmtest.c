@@ -20,6 +20,7 @@ void slow_handler();
 
 int main(int argc, char *argv[]) {
     test0();
+    // 暂时只测试 test0
     test1();
     test2();
     exit(0);
@@ -30,6 +31,7 @@ volatile static int count;
 void periodic() {
     count = count + 1;
     printf("alarm!\n");
+    // printf("start return\n");
     sigreturn();
 }
 

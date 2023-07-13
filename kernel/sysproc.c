@@ -90,10 +90,6 @@ sys_uptime(void) {
 }
 
 uint64 sys_sigalarm() {
-    return 0;
-}
-
-uint64 sys_sigreturn() {
     struct proc *p = myproc();
     int interval;
     if (argint(0, &interval) < 0) {
@@ -105,5 +101,14 @@ uint64 sys_sigreturn() {
     }
     p->interval = interval;
     p->handler = addr;
+
+    return 0;
+}
+
+uint64 sys_sigreturn() {
+    struct proc *p = myproc();
+    p->trapframe->epc = p->pc;
+    memmove(p->trapframe, p->save_reg, sizeof(struct trapframe));
+    p->flag = 0;
     return 0;
 }
