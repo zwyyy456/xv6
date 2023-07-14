@@ -107,7 +107,7 @@ uint64 sys_sigalarm() {
 
 uint64 sys_sigreturn() {
     struct proc *p = myproc();
-    memmove(p->trapframe, p->save_reg, PGSIZE);
     p->flag = 0;
+    memmove(p->trapframe, p->save_reg, PGSIZE);
     return 0;
 }
