@@ -152,12 +152,13 @@ found:
 // p->lock must be held.
 static void
 freeproc(struct proc *p) {
-    if (p->trapframe)
+    if (p->trapframe) {
         kfree((void *)p->trapframe);
+    }
+    p->trapframe = 0;
     if (p->save_reg) {
         kfree((void *)p->save_reg);
     }
-    p->trapframe = 0;
     p->save_reg = 0;
     if (p->pagetable)
         proc_freepagetable(p->pagetable, p->sz);
