@@ -73,7 +73,7 @@ void usertrap(void) {
         // 检查 PTE_W 和 PTE_C
         pte = walk(p->pagetable, vaddr, 0);
         if ((*pte & PTE_W) == 0 && (*pte & PTE_C) == PTE_C) {
-            if (remappage(p->pagetable, vaddr, paddr, pte) != 0) {
+            if (remappage(p->pagetable, vaddr, paddr, pte) == 0) {
                 p->killed = 1;
                 exit(-1);
             }
