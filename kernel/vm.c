@@ -325,8 +325,18 @@ int copyout(pagetable_t pagetable, uint64 dstva, char *src, uint64 len) {
     while (len > 0) {
         va0 = PGROUNDDOWN(dstva);
         pa0 = walkaddr(pagetable, va0);
-        if (pa0 == 0)
+        if (pa0 == 0) {
             return -1;
+        }
+        // copy on write
+        pte_t *pte;
+        // 检查 PTE_W 和 PTE_C
+        pte = walk(pagetable, va0, 0);
+        if ((*pte & PTE_W) == 0 && (*pte & PTE_C) == PTE_C) {
+            if (remappage(pagetable, va0, pa0, pte) != 0) {
+                exit(-1);
+            }
+        }
         n = PGSIZE - (dstva - va0);
         if (n > len)
             n = len;
