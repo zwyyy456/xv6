@@ -293,7 +293,7 @@ int uvmcopy(pagetable_t old, pagetable_t new, uint64 sz) {
         //     goto err;
         // memmove(mem, (char *)pa, PGSIZE);
         if (mappages(new, i, PGSIZE, pa, flags) != 0) {
-            kfree(pa);
+            kfree((char *)pa);
             goto err;
         }
         inc_ref(pa);
@@ -334,7 +334,7 @@ int copyout(pagetable_t pagetable, uint64 dstva, char *src, uint64 len) {
         pte = walk(pagetable, va0, 0);
         if ((*pte & PTE_W) == 0 && (*pte & PTE_C) == PTE_C) {
             if (remappage(pagetable, va0, pa0, pte) != 0) {
-                exit(-1);
+                return -1;
             }
         }
         n = PGSIZE - (dstva - va0);
@@ -426,8 +426,8 @@ int remappage(pagetable_t pagetable, uint64 vaddr, uint64 old_pa, pte_t *pte) {
     memmove(mem, (char *)old_pa, PGSIZE);
     uvmunmap(pagetable, vaddr, 1, 1); // uvmunmap 的时候就会调用 free，递减引用计数
     // dec_ref(old_pa);
-    if (mappages(pagetable, vaddr, PGSIZE, mem, PTE_W | PTE_U | PTE_X | PTE_R) != 0) {
-        kfre(mem);
+    if (mappages(pagetable, vaddr, PGSIZE, (uint64)mem, PTE_W | PTE_U | PTE_X | PTE_R) != 0) {
+        kfree(mem);
         return -1;
     }
     return 0;
