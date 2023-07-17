@@ -402,3 +402,23 @@ int copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max) {
         return -1;
     }
 }
+
+int remappage(pagetable_t pagetable, uint64 vaddr, uint64 old_pa, pte_t *pte) {
+    if (get_ref(old_pa) == 1) {
+        // 直接修改 pte 的 PTE_W 位即可
+        *pte = *pte | PTE_W;
+        return 0;
+    }
+    char *mem;
+    if ((mem = kalloc()) == 0) {
+        return -1;
+    }
+    memmove(mem, (char *)old_pa, PGSIZE);
+    uvmunmap(pagetable, vaddr, 1, 1); // uvmunmap 的时候就会调用 free，递减引用计数
+    // dec_ref(old_pa);
+    if (mappages(pagetable, vaddr, PGSIZE, mem, PTE_W | PTE_U | PTE_X | PTE_R) != 0) {
+        kfre(mem);
+        return -1;
+    }
+    return 0;
+}
