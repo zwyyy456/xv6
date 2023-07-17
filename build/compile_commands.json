@@ -1,0 +1,112 @@
+[
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/alarmtest.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/alarmtest.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/alarmtest.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/bttest.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/bttest.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/bttest.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/call.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/call.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/call.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/cat.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/cat.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/cat.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/echo.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/echo.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/echo.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/forktest.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/forktest.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/forktest.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/grep.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/grep.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/grep.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/grind.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/grind.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/grind.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/init.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/init.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/init.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/kill.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/kill.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/kill.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/ln.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/ln.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/ln.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/ls.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/ls.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/ls.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/mkdir.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/mkdir.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/mkdir.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/printf.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/printf.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/printf.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/rm.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/rm.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/rm.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/sh.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/sh.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/sh.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/stressfs.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/stressfs.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/stressfs.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/ulib.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/ulib.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/ulib.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/umalloc.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/umalloc.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/umalloc.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/usertests.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/usertests.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/usertests.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/wc.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/wc.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/wc.c"
+},
+{
+  "directory": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/build",
+  "command": "/usr/bin/clang -I/home/zwyyy/Documents/code/mit/xv6-labs-2021 -g -std=gnu17 -o CMakeFiles/Kernel.dir/user/zombie.c.o -c /home/zwyyy/Documents/code/mit/xv6-labs-2021/user/zombie.c",
+  "file": "/home/zwyyy/Documents/code/mit/xv6-labs-2021/user/zombie.c"
+}
+]
